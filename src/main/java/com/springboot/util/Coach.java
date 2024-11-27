@@ -1,4 +1,4 @@
-package com.springboot.udemycourse;
+package com.springboot.util;
 
 public interface Coach {
 
