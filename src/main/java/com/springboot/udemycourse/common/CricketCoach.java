@@ -1,4 +1,4 @@
-package com.springboot.util;
+package com.springboot.udemycourse.common;
 
 import org.springframework.stereotype.Component;
 
