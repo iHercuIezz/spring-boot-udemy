@@ -1,9 +1,5 @@
 package com.springboot.udemycourse.common;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -11,16 +7,6 @@ public class CricketCoach implements Coach {
 
     public CricketCoach() {
         System.out.println("In constructor: " + getClass().getSimpleName());
-    }
-
-    @PostConstruct
-    public void doStartupStuff() {
-        System.out.println("In doStartupStuff(): " + getClass().getSimpleName());
-    }
-
-    @PreDestroy
-    public void doCleanupStuff() {
-        System.out.println("In doCleanupStuff(): " + getClass().getSimpleName());
     }
 
     @Override
