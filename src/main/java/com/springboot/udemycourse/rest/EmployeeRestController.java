@@ -1,10 +1,7 @@
 package com.springboot.udemycourse.rest;
 
-import com.springboot.udemycourse.dao.EmployeeDao;
-import com.springboot.udemycourse.dao.EmployeeDaoJpaImpl;
 import com.springboot.udemycourse.entity.Employee;
 import com.springboot.udemycourse.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
