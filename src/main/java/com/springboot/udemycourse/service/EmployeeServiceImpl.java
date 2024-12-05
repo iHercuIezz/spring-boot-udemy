@@ -1,6 +1,6 @@
 package com.springboot.udemycourse.service;
 
-import com.springboot.udemycourse.dao.EmployeeDao;
+import com.springboot.udemycourse.dao.EmployeeRepository;
 import com.springboot.udemycourse.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,33 +11,33 @@ import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private EmployeeDao employeeDao;
+    private EmployeeRepository employeeRepository;
 
     @Autowired
-    public EmployeeServiceImpl(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     @Override
     public List<Employee> findAll() {
-        return employeeDao.findAll();
+        return employeeRepository.findAllByOrderByLastNameAsc();
     }
 
     @Override
     public Employee findById(int id) {
-        return employeeDao.findById(id);
+        return employeeRepository.findById(id).get();
     }
 
     @Override
     @Transactional
     public Employee save(Employee employee) {
-        return employeeDao.save(employee);
+        return employeeRepository.save(employee);
     }
 
     @Override
     @Transactional
     public void deleteById(int id) {
-        employeeDao.deleteById(id);
+        employeeRepository.deleteById(id);
     }
 
 }
