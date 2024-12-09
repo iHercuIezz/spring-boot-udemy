@@ -1,6 +1,7 @@
 package com.springboot.udemycourse.dao;
 
 import com.springboot.udemycourse.entity.Instructor;
+import com.springboot.udemycourse.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
@@ -32,4 +33,16 @@ public class AppDaoImpl implements AppDao {
         entityManager.persist(instructor);
     }
 
+    @Override
+    public InstructorDetail findInstructorDetailsById(int id) {
+        return entityManager.find(InstructorDetail.class, id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteInstructorDetailById(int id) {
+        InstructorDetail instructorDetail = entityManager.find(InstructorDetail.class, id);
+        instructorDetail.getInstructor().setInstructorDetail(null);
+        entityManager.remove(instructorDetail);
+    }
 }

@@ -20,8 +20,30 @@ public class UdemycourseApplication {
 		return runner -> {
 			//createInstructor(appDao);
 			//findInstructor(appDao);
-			deleteInstructor(appDao);
+			//deleteInstructor(appDao);
+			//findInstructorDetail(appDao);
+			deleteInstructorDetail(appDao);
 		};
+	}
+
+	private void deleteInstructorDetail(AppDao appDao) {
+		int id = 3;
+		System.out.println("Deleting instructor with id: " + id);
+
+		appDao.deleteInstructorDetailById(id);
+
+		System.out.println("Done!");
+	}
+
+	private void findInstructorDetail(AppDao appDao) {
+		int id = 2;
+		InstructorDetail instructorDetail = appDao.findInstructorDetailsById(id);
+
+		System.out.println("InstructorDetail: " + instructorDetail);
+		System.out.println("Associated instructor: " + instructorDetail.getInstructor());
+
+		System.out.println("Done");
+
 	}
 
 	private void deleteInstructor(AppDao appDao) {
